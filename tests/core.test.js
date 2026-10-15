@@ -1,0 +1,5 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {normalize,safeUrl,phoneLink,dedupeKey,fields} from '../dist/core.js';
+test('nomes de colunas e acentos da planilha fornecida',()=>{assert.equal(normalize(' Nome / Clínica '),'nome / clinica');assert.ok(fields.find(f=>f.key==='reviews').aliases.includes(normalize('Nº de avaliações')))});
+test('links rejeitam esquemas executáveis',()=>{assert.equal(safeUrl('javascript:alert(1)'),'');assert.equal(safeUrl('data:text/html,test'),'');assert.equal(safeUrl('https://instagram.com/test'),'https://instagram.com/test')});
+test('normaliza telefone brasileiro e rejeita números incompletos',()=>{assert.equal(phoneLink('+55 81 98862-6337'),'https://wa.me/5581988626337');assert.equal(phoneLink('(81) 98862-6337'),'https://wa.me/5581988626337');assert.equal(phoneLink('123'),'')});
+test('duplicação ignora acentos e formatação do telefone',()=>{assert.equal(dedupeKey({name:'Clínica',city:'Recife',phone:'+55 81 98862-6337'}),dedupeKey({name:'Clinica',city:'Recife',phone:'81988626337'}))});

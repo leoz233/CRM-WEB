@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {instagramUrl} from '../dist/core.js';
+test('Instagram por handle ou URL e rejeição de scripts',()=>{assert.equal(instagramUrl('@clinica.teste'),'https://www.instagram.com/clinica.teste/');assert.equal(instagramUrl('javascript:alert(1)'),'');assert.equal(instagramUrl('https://instagram.com/clinica'),'https://instagram.com/clinica')});

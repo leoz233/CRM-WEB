@@ -1,0 +1,2 @@
+# Prospect
+Interface de operação em português. Lista de leads é a superfície principal, com ações de contato sempre visíveis. Verde floresta #245644, fundo #f6f7f4, texto #243b34, bordas #e1e7e0. Manrope em títulos e DM Sans nos controles. Sidebar branca de 232px; conteúdo fluido; tabela no computador e lista em blocos no celular. Espaçamento baseado em 4px. Controles com foco visível, ícones SVG de traço consistente, estados vazios explicativos. Funil e agenda preservam os mesmos componentes e filtros.
